@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package fraud;
+
+service FraudService {
+
+  rpc CheckFraud (FraudRequest)
+      returns (FraudResponse);
+
+}
+
+message FraudRequest {
+
+  string employee_name = 1;
+  double amount = 2;
+  string category = 3;
+
+}
+
+message FraudResponse {
+
+  double risk_score = 1;
+  bool high_risk = 2;
+  string reason = 3;
+
+}
